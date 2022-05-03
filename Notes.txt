@@ -1,0 +1,18 @@
+In React you are NOT allowed to mutate (AKA Change) the state directly for any state value. Instead you can create a new copy of the value and set that as the new state value using the function (setItems in this case) returned from the useState function.
+
+A new update copy of the items (AKA menuItems) array is created and set to the "newItems" variable by mapping through the current value of the array and updating the qty (Quantity) value for the object (AKA Type of pizza) that was selected.
+
+Checking to see if the id (AKA itemID) passed into the updateQty matches the id of the array item/object that is currently being passed into this function (AKA The function for the map method)
+
+
+Setting the new array value (AKA "newItems" variable) that was returned from the map method as the new state value for "items". Also, because the "setItems" state function is used update the value for "items" the Menu component re-renders which causes the three MenuItem component to being created (AKA Rendered) again as well.
+
+Using forEach to run a function for each object in the "items" state (AKA the "menuItems" array). Each time the function is run it multiplies the price and quantity (AKA qty) values for that object (AKA Array item/Type of Pizza) and adds the result to the current "total" value. When it has run the function for each item in the array it plugs in the final "total" value into the h2 element at the bottom of the Menu Component.
+
+Using the map method, which returns a new array whose item values are determined by what is returned from the function passed into the map method. This function is run for each item in the array that the map method is used on. In this case a new MenuItem component is returned/created each time the function is run.
+
+Keys help React identify which items have been changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
+https://reactjs.org/docs/reconciliation.html#recursing-on-children
+
+MenuItem Notes
+Using the updateQty function that was passed down from the Menu component. The values for "id" and "qty" that are passed in as arguments for the following functions are the values passed in for the "id" and "qty" props when each MenuItem component is created.
